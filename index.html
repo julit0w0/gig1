@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halvorsen Design-Build — From the first survey to the last chair</title>
+<meta name="description" content="Design-build in the Hudson Valley. We draw it, we build it, we furnish it. One contract, one team.">
+<style>
+@font-face{font-family:Inter;src:url(fonts/Inter.ttf) format("truetype");font-weight:100 900;font-display:swap}
+:root{--paper:#F2EFE9;--concrete:#8C8A84;--graphite:#1C1C1E;--amber:#D08A2E;--line:rgba(28,28,30,.14)}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--graphite);color:var(--paper);font-family:Inter,system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:26px 40px;color:var(--paper);text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 18px rgba(0,0,0,.35)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.logo svg{width:30px;height:24px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+.wordmark{display:flex;flex-direction:column;line-height:1}
+.wordmark b{font-weight:600;font-size:13px;letter-spacing:.34em;text-transform:uppercase}
+.wordmark span{font-weight:400;font-size:9px;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin-top:4px}
+nav{display:flex;gap:28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+nav a{text-decoration:none;opacity:.92}
+/* film */
+#film{position:relative;height:1660vh}
+#stage{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;background:#111}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+#grade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.34) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,0) 55%,rgba(0,0,0,.5) 100%)}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 72% at 22% 56%,rgba(0,0,0,.42) 0%,rgba(0,0,0,.22) 45%,rgba(0,0,0,0) 72%);opacity:0;transition:opacity .5s}
+#vig.on{opacity:1}
+.card{position:absolute;left:40px;bottom:56px;max-width:min(520px,78vw);opacity:0;transform:translateY(14px);transition:opacity .35s ease,transform .45s ease;will-change:opacity}
+.card.on{opacity:1;transform:none}
+.card.panel{background:rgba(18,18,20,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:22px 26px;border-radius:3px;max-width:min(560px,80vw)}
+.card .k{text-shadow:0 1px 2px rgba(0,0,0,.5);font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--amber);margin:0 0 10px}
+.card h2{text-shadow:0 2px 4px rgba(0,0,0,.35),0 10px 40px rgba(0,0,0,.35);font-weight:300;font-size:clamp(28px,4vw,54px);line-height:1.02;letter-spacing:-.01em;margin:0 0 14px}
+.card p{text-shadow:0 1px 2px rgba(0,0,0,.5),0 4px 18px rgba(0,0,0,.35);font-size:clamp(14px,1.15vw,17px);line-height:1.5;margin:0;max-width:44ch;color:rgba(242,239,233,.9)}
+#hero{bottom:auto;top:50%;transform:translateY(-50%);left:40px;max-width:min(1100px,88vw)}
+#hero.on{transform:translateY(-50%)}
+#hero h1{text-shadow:0 2px 4px rgba(0,0,0,.35),0 12px 48px rgba(0,0,0,.4);font-weight:300;font-size:clamp(38px,5.6vw,88px);line-height:.98;letter-spacing:-.02em;margin:0 0 22px}
+#hero p{font-size:clamp(15px,1.3vw,19px);max-width:46ch;line-height:1.5;margin:0}
+#step{left:0;right:0;bottom:auto;top:50%;text-align:center;max-width:none;transform:translateY(-50%)}
+#step.on{transform:translateY(-50%)}
+#step h2{font-size:clamp(44px,7vw,110px)}
+#step p{margin:0 auto;max-width:40ch}
+#hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.7;transition:opacity .4s}
+#bar{position:absolute;right:28px;top:50%;transform:translateY(-50%);width:2px;height:38vh;background:rgba(255,255,255,.18);border-radius:2px}
+#bar i{display:block;width:100%;height:0;background:var(--paper);border-radius:2px}
+#wk{position:absolute;right:44px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.75}
+#load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#111;z-index:5;transition:opacity .5s}
+#load span{font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+/* after */
+section.flow{background:var(--paper);color:var(--graphite);padding:120px 40px}
+.wrap{max-width:1180px;margin:0 auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.flow h2{font-weight:300;font-size:clamp(34px,4.4vw,62px);line-height:1.02;letter-spacing:-.015em;margin:0 0 22px}
+.flow .k{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--amber);margin:0 0 14px}
+.flow p{font-size:17px;line-height:1.55;max-width:52ch;margin:0 0 16px;color:#3a3a3c}
+form{display:grid;gap:14px;margin-top:8px}
+label{display:grid;gap:6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+input,textarea{font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);background:#fff;color:var(--graphite);border-radius:2px}
+textarea{min-height:120px;resize:vertical}
+button{font:inherit;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:18px 28px;background:var(--graphite);color:var(--paper);border:0;border-radius:2px;cursor:pointer;justify-self:start}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.facts b{display:block;font-weight:300;font-size:40px;letter-spacing:-.02em}
+.facts span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--concrete)}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.projects figure{margin:0}
+.projects img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:2px;background:#ddd}
+.projects figcaption{font-size:13px;margin-top:10px;color:#3a3a3c}
+.projects figcaption b{font-weight:600;display:block;color:var(--graphite)}
+footer{background:var(--graphite);color:var(--paper);padding:48px 40px;font-size:12px;letter-spacing:.08em}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;opacity:.8}
+@media (max-width:760px){
+ header{padding:18px 20px}nav{display:none}
+ .card{left:20px;right:20px;bottom:44px;max-width:none}
+ #hero{left:20px;max-width:none}
+ #bar,#wk{display:none}
+ section.flow{padding:72px 20px}.grid{grid-template-columns:1fr;gap:40px}
+ .facts{grid-template-columns:1fr 1fr}.projects{grid-template-columns:1fr}
+ footer{padding:36px 20px}
+}
+</style>
+</head>
+<body>
+<header><a class="logo" href="#"><svg viewBox="0 0 30 24" aria-hidden="true"><rect x="0" y="13" width="19" height="8" fill="currentColor"/><rect x="9" y="3" width="21" height="8" fill="currentColor"/><rect x="9" y="11" width="2" height="2" fill="currentColor"/></svg><div class="wordmark"><b>Halvorsen</b><span>Design-Build</span></div></a><nav><a href="#process">Process</a><a href="#work">Work</a><a href="#start">Start a project</a></nav></header>
+
+<div id="film">
+ <div id="stage">
+  <canvas id="cv"></canvas>
+  <div id="grade"></div>
+  <div id="vig"></div>
+  <div id="load"><span>Loading</span></div>
+
+  <div class="card" id="hero">
+   <h1>From the first survey<br>to the last chair.</h1>
+   <p>Design-build in the Hudson Valley. We draw it, we build it, we furnish it. One contract, one team, one site visit a week until you have the keys.</p>
+  </div>
+  <div class="card" data-r="k=0"><p class="k">01 · Site</p><h2>2.4 acres, facing south.</h2><p>A gentle slope above the valley in Dutchess County. We walk every site before we draw a line: sun, wind, drainage, the trees worth keeping.</p></div>
+  <div class="card" data-r="k=1"><p class="k">02 · Survey &amp; excavation · weeks 1–2</p><h2>Marked out, dug out.</h2><p>Stakes and string first. Then the footprint is cut into the hill and the foundation trench follows the plan to the inch.</p></div>
+  <div class="card" data-r="k=2"><p class="k">03 · Foundation · weeks 3–5</p><h2>One slab, poured once.</h2><p>Insulated concrete slab with radiant heat loops inside it. Anchor bolts set before the pour, so the frame lands exactly where it should.</p></div>
+  <div class="card" data-r="k=3"><p class="k">04 · Framing · weeks 6–10</p><h2>The house you can read.</h2><p>2×6 stud walls, engineered joists, and the cantilever carried by steel inside the timber. Our own crew; no framing subcontractor.</p></div>
+  <div class="card" data-r="k=4"><p class="k">05 · Dry-in · weeks 11–14</p><h2>Sealed before the weather turns.</h2><p>Sheathing, wrap and roof membrane. From this week the interior schedule runs regardless of rain.</p></div>
+  <div class="card" data-r="k=5"><p class="k">06 · Windows · weeks 15–16</p><h2>Forty-six feet of glass.</h2><p>Thermally broken black steel units, floor to ceiling along the south face. Ordered in week 2 so they arrive the day the openings are ready.</p></div>
+  <div class="card" data-r="k=6"><p class="k">07 · Cladding · weeks 17–22</p><h2>Cedar, two ways.</h2><p>Grey-washed vertical cedar on the ground floor, charred cedar on the upper volume. Both go on as a rain screen, board by board.</p></div>
+  <div class="card" data-r="k=7"><p class="k">08 · Landscape · weeks 23–26</p><h2>The ground put back.</h2><p>Topsoil returned and seeded, the oak untouched, a gravel apron where the cars go. The house should look like it was always there.</p></div>
+  <div class="card" data-r="k=8"><p class="k">09 · Move-in · week 28</p><h2>Twenty-eight weeks.</h2><p>Fixed schedule, fixed price, one point of contact. You see the same two faces from the first survey to the day we hand over the keys.</p></div>
+  <div class="card" id="step" data-r="step"><h2>Step inside.</h2><p>Interiors are part of the build, not an afterthought.</p></div>
+  <div class="card panel" data-r="film=0.10,0.55"><p class="k">Interiors</p><h2>Chosen while the walls go up.</h2><p>Furniture, lighting, rugs and art are specified alongside the drawings, so the room is finished the week you move in, not six months later.</p></div>
+  <div class="card panel" data-r="film=0.93,1.01"><p class="k">Delivered</p><h2>Ready to live in.</h2><p>Everything in this room was selected, ordered and installed by the same team that poured the slab.</p></div>
+
+  <div id="bar"><i></i></div>
+  <div id="wk">Week 0</div>
+  <div id="hint">Scroll</div>
+ </div>
+</div>
+
+<section class="flow" id="process"><div class="wrap grid">
+ <div><p class="k">How we work</p><h2>One contract. One team. One schedule.</h2></div>
+ <div>
+  <p>Most houses are built by three companies that have never met: an architect, a general contractor, and, later, a decorator. Every handover costs weeks and money, and nobody owns the result.</p>
+  <p>We own it. Our architects, builders and interior team sit at one table from the first site walk. The drawings are priced as they are drawn, the furniture is specified as the walls go up, and the schedule is fixed before we break ground.</p>
+  <div class="facts"><div><b>28</b><span>weeks, survey to keys</span></div><div><b>1</b><span>contract, fixed price</span></div><div><b>2</b><span>people you'll always talk to</span></div></div>
+ </div>
+</div></section>
+
+<section class="flow" id="work" style="padding-top:0"><div class="wrap">
+ <p class="k">Selected work</p><h2>Three houses, same method.</h2>
+ <div class="projects">
+  <figure><img src="stills/p9.webp" alt="Ridge House, exterior at dusk"><figcaption><b>Ridge House</b>Rhinebeck · 2,580 sq ft · 2026</figcaption></figure>
+  <figure><img src="stills/p4.webp" alt="Ridge House during framing"><figcaption><b>Ridge House, week 8</b>Framing complete, cantilever set</figcaption></figure>
+  <figure><img src="stills/p1.webp" alt="The site before construction"><figcaption><b>The site, week 0</b>2.4 acres, Dutchess County</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="flow" id="start" style="padding-top:0"><div class="wrap grid">
+ <div><p class="k">Start a project</p><h2>Tell us about your site.</h2><p>We take on six houses a year in the Hudson Valley and the Berkshires. If you have land, or are about to, write to us and we'll come walk it with you.</p></div>
+ <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we will write back within two days.'">
+  <label>Name<input type="text" required></label>
+  <label>Email<input type="email" required></label>
+  <label>Your site<textarea placeholder="Town, acreage, and where you are in the process."></textarea></label>
+  <button type="submit">Send</button>
+ </form>
+</div></section>
+
+<footer><div class="wrap"><span>Halvorsen Design-Build · Rhinebeck, New York</span><span>hello@halvorsen.studio</span><span>Concept demo by NEA Sistemas — fictional studio</span></div></footer>
+
+<script>
+(function(){
+const N=254, NP=9;
+const mobile=Math.min(innerWidth,innerHeight)<760;
+const FR=mobile?'frames-m/':'frames/', ST=mobile?'stills-m/':'stills/';
+const cv=document.getElementById('cv'), ctx=cv.getContext('2d');
+const film=document.getElementById('film'), bar=document.querySelector('#bar i'), wk=document.getElementById('wk'), hint=document.getElementById('hint'), load=document.getElementById('load');
+const cards=[...document.querySelectorAll('.card[data-r]')].map(e=>({e,spec:e.dataset.r}));
+const hero=document.getElementById('hero');
+// timeline in vh
+const T={hero:60,phase:70,fade:20,step:80,film:900,end:60};
+const total=T.hero+T.phase*(NP-1)+T.step+T.film+T.end; // 1660
+const A1=T.hero+T.phase*(NP-1), F0=A1+T.step;
+for(const c of cards){const v=c.spec;
+ if(v.startsWith('k=')){const k=+v.slice(2);const a=k===0?T.hero+6:T.hero+T.phase*k+6;const b=k===NP-1?A1-2:T.hero+T.phase*(k+1)-T.fade+4;c.r=[a/total,b/total];}
+ else if(v==='step'){c.r=[(A1+10)/total,(F0+T.film*0.015)/total];}
+ else{const [a,b]=v.slice(5).split(',').map(Number);c.r=[(F0+T.film*a)/total,(F0+T.film*b)/total];}
+}
+const stills=[],frames=new Array(N);let loaded=0;
+function img(src){return new Promise(res=>{const i=new Image();i.onload=()=>res(i);i.onerror=()=>res(null);i.src=src;});}
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)), sm=u=>{u=clamp(u,0,1);return u*u*(3-2*u)};
+function fit(){const d=Math.min(devicePixelRatio||1,2);cv.width=Math.round(innerWidth*d);cv.height=Math.round(innerHeight*d);ctx.setTransform(d,0,0,d,0,0);}
+function cover(im,z,ax){ // draw image cover-fit, zoom z, focal x 0..1
+ if(!im)return;const W=innerWidth,H=innerHeight;const s=Math.max(W/im.width,H/im.height)*z;const w=im.width*s,h=im.height*s;const x=(W-w)*(ax==null?0.5:ax),y=(H-h)*0.5;ctx.drawImage(im,x,y,w,h);}
+const AX=mobile?0.42:0.5;
+const SIMq=new URLSearchParams(location.search).get('sim');const SIM=SIMq==null?null:parseFloat(SIMq); // mobile: keep the house slightly left of centre in frame
+let lastDrawn=-1;
+function draw(){
+ const y=scrollY,top=film.offsetTop,len=film.offsetHeight-innerHeight;
+ const p=(SIM!=null)?SIM:clamp((y-top)/len,0,1); // 0..1 through the film
+ const vh=p*total; // position in vh units
+ ctx.fillStyle='#111';ctx.fillRect(0,0,innerWidth,innerHeight);
+ let week=0;
+ if(vh<T.hero+T.phase*(NP-1)+T.step){ // act 1 + step
+  let u=vh-T.hero; let k,f;
+  if(u<0){k=0;f=0;}else{k=Math.min(NP-1,Math.floor(u/T.phase));f=u-k*T.phase;}
+  const z=1+0.02*clamp(f/T.phase,0,1);
+  cover(stills[k],z,AX);
+  const fr=f-(T.phase-T.fade);
+  if(k<NP-1&&fr>0){ctx.globalAlpha=sm(fr/T.fade);cover(stills[k+1],1,AX);ctx.globalAlpha=1;}
+  if(k===NP-1){const su=clamp((u-T.phase*(NP-1))/T.step,0,1);ctx.fillStyle='rgba(10,10,10,'+(0.55*sm(su*2)).toFixed(3)+')';ctx.fillRect(0,0,innerWidth,innerHeight);}
+  week=[0,2,5,10,14,16,22,26,28][k];
+ }else{
+  const u=vh-(T.hero+T.phase*(NP-1)+T.step);
+  const i=clamp(Math.round(u/T.film*(N-1)),0,N-1);
+  let im=frames[i];let j=i;while(!im&&j>0){j--;im=frames[j];}
+  cover(im||stills[NP-1],1,0.5);week=28;
+ }
+ for(const c of cards){c.e.classList.toggle('on',p>=c.r[0]&&p<c.r[1]);}
+ hero.classList.toggle('on',p<0.05);document.getElementById('vig').classList.toggle('on',p<0.05);
+ hint.style.opacity=p<0.02?0.7:0;
+ bar.style.height=(p*100).toFixed(2)+'%';wk.textContent='Week '+week;
+}
+let tick=false;function onScroll(){if(!tick){tick=true;requestAnimationFrame(()=>{draw();tick=false;});}}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',()=>{fit();draw();});
+(async function(){
+ fit();
+ const s=await Promise.all([...Array(NP)].map((_,i)=>img(ST+'p'+(i+1)+'.webp')));s.forEach((im,i)=>stills[i]=im);
+ const first=await Promise.all([...Array(24)].map((_,i)=>img(FR+'f'+String(i).padStart(3,'0')+'.webp')));first.forEach((im,i)=>frames[i]=im);
+ load.style.opacity=0;setTimeout(()=>load.remove(),600);
+ const q=new URLSearchParams(location.search).get('p');if(q){scrollTo(0,film.offsetTop+(film.offsetHeight-innerHeight)*parseFloat(q));}
+ draw();
+ for(let i=24;i<N;i+=8){await Promise.all([...Array(8)].map((_,k)=>i+k<N?img(FR+'f'+String(i+k).padStart(3,'0')+'.webp').then(im=>frames[i+k]=im):null));}
+ draw();
+})();
+})();
+</script>
+</body></html>

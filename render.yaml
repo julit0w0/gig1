@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: halvorsen-demo
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /frames/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /frames-m/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /stills/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /stills-m/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /fonts/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
